@@ -1,26 +1,24 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const deps = require('./package.json').dependencies;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const deps = require('./package.json').dependencies;
+
+
+const domain = process.env.PRODUCTION_DOMAIN;
+const domain1 = "http://localhost:9001";
+const domain2 = "http://localhost:9002";
 
 module.exports = {
     entry:'./src/index.js',
     output:{
-        filename:'bundle.js',
+        filename:'[name].[contenthash].bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:"http://localhost:9001/"
+        publicPath:"./"
     },
-    mode:'development',
-    devServer:{
-        static:{
-            directory: path.resolve(__dirname, './dist'),
-        },
-        devMiddleware:{
-            index: 'app1.html',
-            writeToDisk:true
-        },
-        port: 9001,
+    mode:'production',
+    experiments: { 
+        topLevelAwait: true 
     },
     module:{
         rules:[
@@ -31,7 +29,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.?js$/,
+                test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -45,33 +43,18 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: path.join(__dirname, "public", "app1.html"),
+          template: path.join(__dirname, "public", "app.html"),
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
         new ModuleFederationPlugin({
-            name:"App1",
-            filename:"remoteEntry.js",
-            exposes:{
-                './MountApp1': './src/bootstrap.js',
-                './App1': './src/App.js',
-                './Header': './src/Header/Header.js',
-                './Todo': './src/Todo/Todo.js',
+            name:"App",
+            remotes:{
+                App1:`App1@${domain1}/remoteEntry.js`,
+                App2:`App2@${domain2}/remoteEntry.js`,
             },
-            shared: {
-                ...deps,
-                react: { 
-                    singleton: true, 
-                    eager: true, 
-                    requiredVersion: deps["react"] 
-                },
-                'react-dom': {
-                  singleton: true,
-                  eager: true,
-                  requiredVersion: deps['react-dom'],
-                },
-            },
+            shared: deps
         })
     ],
 }

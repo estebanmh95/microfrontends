@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const deps = require('./package.json').dependencies;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry:'./src/index.js',
@@ -45,6 +46,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
           template: path.join(__dirname, "public", "app2.html"),
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
         }),
         new ModuleFederationPlugin({
             name:"App2",

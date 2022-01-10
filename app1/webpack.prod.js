@@ -7,21 +7,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry:'./src/index.js',
     output:{
-        filename:'bundle.js',
+        filename:'[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath:"http://localhost:9001/"
     },
-    mode:'development',
-    devServer:{
-        static:{
-            directory: path.resolve(__dirname, './dist'),
-        },
-        devMiddleware:{
-            index: 'app1.html',
-            writeToDisk:true
-        },
-        port: 9001,
-    },
+    mode:'production',
     module:{
         rules:[
             {

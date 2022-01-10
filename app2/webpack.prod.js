@@ -7,21 +7,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry:'./src/index.js',
     output:{
-        filename:'bundle.js',
+        filename:'[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:"http://localhost:9001/"
+        publicPath:"http://localhost:9002/"
     },
-    mode:'development',
-    devServer:{
-        static:{
-            directory: path.resolve(__dirname, './dist'),
-        },
-        devMiddleware:{
-            index: 'app1.html',
-            writeToDisk:true
-        },
-        port: 9001,
-    },
+    mode:'production',
     module:{
         rules:[
             {
@@ -45,19 +35,19 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: path.join(__dirname, "public", "app1.html"),
+          template: path.join(__dirname, "public", "app2.html"),
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
         new ModuleFederationPlugin({
-            name:"App1",
+            name:"App2",
             filename:"remoteEntry.js",
             exposes:{
-                './MountApp1': './src/bootstrap.js',
-                './App1': './src/App.js',
-                './Header': './src/Header/Header.js',
-                './Todo': './src/Todo/Todo.js',
+                './App2': './src/App2.js',
+                './Headers': './src/Headers/Headers.js',
+                './Todos': './src/Todos/Todos.js',
+
             },
             shared: {
                 ...deps,
