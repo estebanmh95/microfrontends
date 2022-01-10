@@ -9,7 +9,7 @@ on:
 
 defaults:
   run:
-    workin-directory: containerApp
+    working-directory: containerApp
 
 jobs:
   build:
