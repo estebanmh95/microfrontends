@@ -16,8 +16,8 @@ const App2 = () => {
     ]
     return(
         <React.Fragment>
-            <Todos todos={todos}/>
             <Headers/>
+            <Todos todos={todos}/>
         </React.Fragment>
     )
 }
