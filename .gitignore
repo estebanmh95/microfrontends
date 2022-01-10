@@ -1,0 +1,6 @@
+app1/node_modules
+app1/dist
+app2/node_modules
+app2/dist
+containerApp/node_modules
+containerApp/dist
