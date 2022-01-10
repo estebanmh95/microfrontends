@@ -45,7 +45,7 @@ module.exports = {
             filename:"remoteEntry.js",
             exposes:{
                 './MountApp1': './src/bootstrap.js',
-                './App1': './src/App.js',
+                './App1': './src/App1.js',
                 './Header': './src/Header/Header.js',
                 './Todo': './src/Todo/Todo.js',
             },

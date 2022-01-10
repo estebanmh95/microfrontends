@@ -3,7 +3,7 @@ import Todo from "./Todo/Todo";
 import Header from "./Header/Header";
 
 
-const App = () => {
+const App1 = () => {
     const todos = [
         "Run",
         "Eat",
@@ -12,10 +12,10 @@ const App = () => {
     ]
     return(
         <React.Fragment>
-            <Todo todos={todos}/>
             <Header/>
+            <Todo todos={todos}/>
         </React.Fragment>
     )
 }
 
-export default App;
+export default App1;

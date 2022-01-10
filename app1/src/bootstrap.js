@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App1 from './App1';
 
 
 async function mount(el){
-    ReactDOM.render(<App/>, el)
+    ReactDOM.render(<App1/>, el)
 }
 
 if(process.env.NODE_ENV === 'development'){
