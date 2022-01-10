@@ -16,7 +16,7 @@ export default () => {
     const [showTitle, setShowTitle] = useState(false)
 
     const handleChange = () => {
-        setShowTitle(!showTitle)
+        setShowTitle(!showTitle);
     }
     return(
         <React.Suspense fallback="Loading header...">            
