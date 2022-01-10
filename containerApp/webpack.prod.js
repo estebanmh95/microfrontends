@@ -51,8 +51,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name:"App",
             remotes:{
-                App1:`App1@${domain1}/remoteEntry.js`,
-                App2:`App2@${domain2}/remoteEntry.js`,
+                App1:`App1@${domain}/app1/latest/remoteEntry.js`,
+                App2:`App2@${domain}/app2/latest/remoteEntry.js`,
             },
             shared: deps
         })
