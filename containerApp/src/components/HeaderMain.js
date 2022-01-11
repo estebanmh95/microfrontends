@@ -71,6 +71,7 @@ export default function HeaderMain({ signedIn, onSignOut }) {
         elevation={0}
         className={classes.appBar}
       >
+        
         <Toolbar className={classes.toolbar}>
           <Typography
             variant="h6"
@@ -80,6 +81,24 @@ export default function HeaderMain({ signedIn, onSignOut }) {
             to="/"
           >
             App
+          </Typography>
+          <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            component={RouterLink}
+            to="/app1"
+          >
+            App1
+          </Typography>
+          <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            component={RouterLink}
+            to="/app2"
+          >
+            App2
           </Typography>
           <Button
             color="primary"
