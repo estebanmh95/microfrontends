@@ -8,7 +8,6 @@ async function mount(el){
 
 if(process.env.NODE_ENV === 'development'){
     mount(document.getElementById('root'))
-    // ReactDOM.render(<App />, document.getElementById('root'));
 }
 
 export {mount};
