@@ -9,13 +9,12 @@ export default () => {
 
     const onNavigate = ({pathname: nextPathname}) => {
         const {pathname} = history.location
-        console.log("next pathname",nextPathname)
-        // console.log("current pathname",pathname)
         if(pathname !== nextPathname){
             history.push(nextPathname)
         }
     }
+    const initialPath = history.location.pathname
 
     history.listen(anotherFunction)
-    return <App1 onNavigate={onNavigate}/>
+    return <App1 onNavigate={onNavigate} initialPath={initialPath}/>
 };

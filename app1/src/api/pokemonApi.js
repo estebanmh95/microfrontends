@@ -1,4 +1,4 @@
-const pokemonList = fetch('https://pokeapi.co/api/v2/pokemon?limit=50&offset=200')
+const pokemonList = fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=200')
     .then(resp=>resp.json())
     .then(pokemons => {
         return {

@@ -17,17 +17,17 @@ export default () => {
     }
     return(
         <BrowserRouter>
-            {/* <React.Suspense fallback="Loading header...">   */}
+            <React.Suspense fallback="Loading header...">  
                 <StylesProvider generateClassName={generateClassName}>
                     <HeaderMain/>   
                     {/* {!showTitle && <App1/>} */}
                     {/* <Switch> */}
-                        <Route exact path="/"       component={Landing}/>
-                        <Route exact path="/app1"   component={App1}/>
-                        <Route exact path="/app2"   component={App2}/>
+                        <Route exact path="/"           component={Landing}/>
+                        <Route path="/pokemon"    component={App1}/>
+                        <Route exact path="/app2"       component={App2}/>
                     {/* </Switch> */}
                 </StylesProvider>       
-            {/* </React.Suspense> */}
+            </React.Suspense>
         </BrowserRouter>   
     )
 }

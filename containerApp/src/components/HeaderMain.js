@@ -87,7 +87,7 @@ export default function HeaderMain({ signedIn, onSignOut }) {
             color="inherit"
             noWrap
             component={RouterLink}
-            to="/app1"
+            to="/pokemon"
           >
             Pokemon
           </Typography>

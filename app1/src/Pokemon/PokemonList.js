@@ -22,7 +22,7 @@ export default ( ) => {
                 { pokemons.map((character, idx)=>{
                     return(
                         <div key={idx} className="character-list--card">
-                            <Link to={`app1/pokemon/${character.name}`}>
+                            <Link to={`pokemon/${character.name}`}>
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx+201}.png`}/>
                             </Link>
                             <h4>{character.name}</h4>
