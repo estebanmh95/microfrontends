@@ -1,0 +1,26 @@
+.character-list--container{
+    padding: 20px;
+
+    .character-list--card-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        .character-list--card{
+            box-sizing: border-box;
+            border: 1px solid black;
+            margin: 20px;
+            border-radius: 5%;
+            // padding: 10px 3px;
+
+            img{
+                border-top-left-radius: 5%;
+                border-top-right-radius: 5%;
+            }
+            h4{
+                margin: 10px;
+            }
+        }
+
+    }
+}

@@ -80,7 +80,7 @@ export default function HeaderMain({ signedIn, onSignOut }) {
             component={RouterLink}
             to="/"
           >
-            App
+            Rick And Morty
           </Typography>
           <Typography
             variant="h6"
@@ -89,7 +89,7 @@ export default function HeaderMain({ signedIn, onSignOut }) {
             component={RouterLink}
             to="/app1"
           >
-            App1
+            Pokemon
           </Typography>
           <Typography
             variant="h6"

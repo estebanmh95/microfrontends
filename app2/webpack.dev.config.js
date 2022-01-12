@@ -20,6 +20,7 @@ module.exports = {
             index: 'app2.html',
             writeToDisk:true
         },
+        historyApiFallback: true,
         port: 9002,
     },
     module:{

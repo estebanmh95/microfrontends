@@ -6,10 +6,10 @@ const Header = () => {
 
 
     useEffect(()=>{
-        setTitle("App1")
+        setTitle("Best Pokemons")
     },[])
     return(
-        <h1 className="header">{title}</h1>
+        <h1 className="pokemon--header">{title}</h1>
     )
 }
 

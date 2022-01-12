@@ -21,6 +21,7 @@ module.exports = {
             writeToDisk:true
         },
         port: 9001,
+        historyApiFallback: true,
     },
     module:{
         rules:[

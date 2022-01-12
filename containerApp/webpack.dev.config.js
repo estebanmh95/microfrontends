@@ -20,6 +20,9 @@ module.exports = {
         },
         port: 9000,
         historyApiFallback: true,
+        // historyApiFallback:{
+        //     index: 'app.html'
+        // }
     },
     experiments: { 
         topLevelAwait: true 

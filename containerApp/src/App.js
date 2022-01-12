@@ -4,8 +4,7 @@ import App2 from "./components/App2";
 import HeaderMain from "./components/HeaderMain";
 import { BrowserRouter, Route, Switch, Link, Router } from "react-router-dom";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
-import {anotherFunction} from 'App1/App1'
-
+import Landing from "./components/Landing";
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'cont'
@@ -18,22 +17,17 @@ export default () => {
     }
     return(
         <BrowserRouter>
-            <React.Suspense fallback="Loading header...">  
+            {/* <React.Suspense fallback="Loading header...">   */}
                 <StylesProvider generateClassName={generateClassName}>
-                        <HeaderMain/>
-                        <h1>Main App from Home</h1>
-                        <App1/>
-                        {/* <button onClick={()=>setShowTitle(!showTitle)}>Click me</button>
-                        {showTitle && <App1/>}
-                        {showTitle && <App2/>} */}
-                        {/* <Link to="/app1">App1</Link>  */}
-                        {/* <Link to="/app2">App2</Link> */}
-                        <Switch>
-                            <Route exact path="/app1" component={App1}/>
-                            <Route exact path="/app2" component={App2}/>
-                        </Switch>
+                    <HeaderMain/>   
+                    {!showTitle && <App1/>}
+                    {/* <Switch> */}
+                        <Route exact path="/"       component={Landing}/>
+                        <Route exact path="/app1"   component={App1}/>
+                        <Route exact path="/app2"   component={App2}/>
+                    {/* </Switch> */}
                 </StylesProvider>       
-            </React.Suspense>
+            {/* </React.Suspense> */}
         </BrowserRouter>   
     )
 }

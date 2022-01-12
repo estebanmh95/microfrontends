@@ -9,7 +9,8 @@ export default () => {
 
     const onNavigate = ({pathname: nextPathname}) => {
         const {pathname} = history.location
-
+        console.log("next pathname",nextPathname)
+        // console.log("current pathname",pathname)
         if(pathname !== nextPathname){
             history.push(nextPathname)
         }
