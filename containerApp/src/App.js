@@ -20,7 +20,7 @@ export default () => {
             {/* <React.Suspense fallback="Loading header...">   */}
                 <StylesProvider generateClassName={generateClassName}>
                     <HeaderMain/>   
-                    {!showTitle && <App1/>}
+                    {/* {!showTitle && <App1/>} */}
                     {/* <Switch> */}
                         <Route exact path="/"       component={Landing}/>
                         <Route exact path="/app1"   component={App1}/>
