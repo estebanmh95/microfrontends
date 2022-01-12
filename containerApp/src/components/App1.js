@@ -1,8 +1,11 @@
-import App1 from 'App1/App1'
+// import App1 from 'App1/App1'
 import React,{useRef, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import {anotherFunction} from 'App1/App1'
 
+const App1 = React.lazy(
+    () => import('App1/App1')
+  );
 export default () => {
 
     const history = useHistory();
