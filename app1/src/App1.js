@@ -5,7 +5,7 @@ import { Switch , Route, BrowserRouter, Link, Router } from "react-router-dom";
 import {createMemoryHistory} from 'history'
 import PokemonList from "./Pokemon/PokemonList";
 import PokemonDetail from "./PokemonDetail/PokemonDetail";
-
+import Header from "./Header/Header";
 const history = createMemoryHistory();
 
 const anotherFunction = (props) => {
@@ -29,21 +29,21 @@ const App1 = ({onNavigate, initialPath}) => {
     ]
 
     return(
-        <Router history={history}>
-            <React.Fragment>
-                {/* <Header/> */}
-                    {/* <Link to="app1/documents">Documents</Link> 
-                    <Link to="/folders">Folders</Link> */}
-                <Switch>
-                    {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
-                    <Route exact path="/"               component={PokemonList}/>
-                    <Route exact path="/pokemon"        component={PokemonList}/>
-                    <Route exact path="/pokemon/:id"    component={PokemonDetail}/>
-                    <Route exact path="/documents"      component={Documents}/>
-                    <Route exact path="/folders"        component={Folders}/>
-                </Switch>
-            </React.Fragment>
-        </Router>
+                <Header/>
+        // <Router history={history}>
+        //     <React.Fragment>
+        //             {/* <Link to="app1/documents">Documents</Link> 
+        //             <Link to="/folders">Folders</Link> */}
+        //         <Switch>
+        //             {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
+        //             <Route exact path="/"               component={PokemonList}/>
+        //             <Route exact path="/pokemon"        component={PokemonList}/>
+        //             <Route exact path="/pokemon/:id"    component={PokemonDetail}/>
+        //             <Route exact path="/documents"      component={Documents}/>
+        //             <Route exact path="/folders"        component={Folders}/>
+        //         </Switch>
+        //     </React.Fragment>
+        // </Router>
     )
 }
 
