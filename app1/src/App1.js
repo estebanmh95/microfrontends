@@ -29,21 +29,21 @@ const App1 = ({onNavigate, initialPath}) => {
     ]
 
     return(
-                <Header/>
-        // <Router history={history}>
-        //     <React.Fragment>
-        //             {/* <Link to="app1/documents">Documents</Link> 
-        //             <Link to="/folders">Folders</Link> */}
-        //         <Switch>
-        //             {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
-        //             <Route exact path="/"               component={PokemonList}/>
-        //             <Route exact path="/pokemon"        component={PokemonList}/>
-        //             <Route exact path="/pokemon/:id"    component={PokemonDetail}/>
-        //             <Route exact path="/documents"      component={Documents}/>
-        //             <Route exact path="/folders"        component={Folders}/>
-        //         </Switch>
-        //     </React.Fragment>
-        // </Router>
+                // <Header/>
+        <Router history={history}>
+            <React.Fragment>
+                    {/* <Link to="app1/documents">Documents</Link> 
+                    <Link to="/folders">Folders</Link> */}
+                <Switch>
+                    {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
+                    <Route exact path="/"               component={PokemonList}/>
+                    <Route exact path="/pokemon"        component={PokemonList}/>
+                    <Route exact path="/pokemon/:id"    component={PokemonDetail}/>
+                    <Route exact path="/documents"      component={Documents}/>
+                    <Route exact path="/folders"        component={Folders}/>
+                </Switch>
+            </React.Fragment>
+        </Router>
     )
 }
 
