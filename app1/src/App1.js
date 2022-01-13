@@ -36,9 +36,9 @@ const App1 = ({onNavigate, initialPath}) => {
                     <Link to="/folders">Folders</Link> */}
                 <Switch>
                     {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
-                    <Route exact path="/"               component={PokemonList}/>
+                    {/* <Route exact path="/"               component={PokemonList}/> */}
                     <Route exact path="/pokemon"        component={PokemonList}/>
-                    <Route exact path="/pokemon/:id"    component={PokemonDetail}/>
+                    <Route path="/pokemon/:id"    component={PokemonDetail}/>
                     <Route exact path="/documents"      component={Documents}/>
                     <Route exact path="/folders"        component={Folders}/>
                 </Switch>

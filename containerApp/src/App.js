@@ -22,10 +22,13 @@ export default () => {
                     <Suspense fallback={<Progress/>}>
                         <Switch>
                             <Route exact path="/"               component={Landing}/>
-                            <Route exact path="/pokemon"        component={App1Lazy}/>
-                            <Route exact path="/pokemon/:id"    component={App1Lazy}/>
+                            <Route path="/pokemon"        component={App1Lazy}/>
+                            {/* <Route exact path="/pokemon/:id"    component={App1Lazy}/> */}
                             <Route exact path="/app2"           component={App2Lazy}/>
-                            <Route path="/auth">
+                            <Route path="/signin">
+                                <AuthLazy handleSignIn={()=>setIsSignedIn(true)}/>
+                            </Route>
+                            <Route path="/signup">
                                 <AuthLazy handleSignIn={()=>setIsSignedIn(true)}/>
                             </Route>
                         </Switch>

@@ -32,10 +32,13 @@ export default ({onNavigate, initialPath, onSignIn}) => {
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route path="/auth/signin" >
+            {/* <Route exact path="/" >
+              <Signin onSignIn={onSignIn}/>
+            </Route> */}
+            <Route path="/signin" >
               <Signin onSignIn={onSignIn}/>
             </Route>
-            <Route path="/auth/signup">
+            <Route path="/signup">
               <Signup onSignIn={onSignIn}/>
             </Route>
           </Switch>
