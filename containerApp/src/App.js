@@ -23,8 +23,8 @@ export default () => {
                     {/* {!showTitle && <App1/>} */}
                     {/* <Switch> */}
                         <Route exact path="/"               component={Landing}/>
-                        {/* <Route exact path="/pokemon"        component={App1}/>
-                        <Route exact path="/pokemon/:id"    component={App1}/> */}
+                        <Route exact path="/pokemon"        component={App1}/>
+                        <Route exact path="/pokemon/:id"    component={App1}/>
                         <Route exact path="/app2"           component={App2}/>
                     {/* </Switch> */}
                 </StylesProvider>       
