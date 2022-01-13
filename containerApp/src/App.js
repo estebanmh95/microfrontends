@@ -1,5 +1,5 @@
 import React, { lazy, useState } from "react";
-// import App1 from "./components/App1";
+import App1 from "./components/App1";
 import App2 from "./components/App2";
 import HeaderMain from "./components/HeaderMain";
 import { BrowserRouter, Route, Switch, Link, Router } from "react-router-dom";
