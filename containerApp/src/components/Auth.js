@@ -1,12 +1,9 @@
-import App1 from 'App1/App1'
+import Auth from 'Auth/Auth'
 import React,{useRef, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import {anotherFunction} from 'App1/App1'
+import {handleAuthRoutes} from 'Auth/Auth'
 
-// const App1 = React.lazy(
-//     () => import('App1/App1')
-//   );
-export default () => {
+export default (props) => {
 
     const history = useHistory();
 
@@ -16,8 +13,13 @@ export default () => {
             history.push(nextPathname)
         }
     }
+
+    const onSignIn = () => {
+        console.log(props)
+        props.handleSignIn()
+    }
     const initialPath = history.location.pathname
 
-    history.listen(anotherFunction)
-    return <App1 onNavigate={onNavigate} initialPath={initialPath}/>
+    history.listen(handleAuthRoutes)
+    return <Auth onNavigate={onNavigate} initialPath={initialPath} onSignIn={onSignIn}/>
 };

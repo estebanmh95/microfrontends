@@ -1,24 +1,27 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const deps = require('./package.json').dependencies;
-
-
-const domain = process.env.PRODUCTION_DOMAIN;
-const domain1 = "http://localhost:9001";
-const domain2 = "http://localhost:9002";
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry:'./src/index.js',
     output:{
-        filename:'[name].[contenthash].bundle.js',
+        filename:'bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:"./container/latest/"
+        publicPath:"http://localhost:9003/"
     },
-    mode:'production',
-    experiments: { 
-        topLevelAwait: true 
+    mode:'development',
+    devServer:{
+        static:{
+            directory: path.resolve(__dirname, './dist'),
+        },
+        devMiddleware:{
+            index: 'index.html',
+            writeToDisk:true
+        },
+        historyApiFallback: true,
+        port: 9003,
     },
     module:{
         rules:[
@@ -29,7 +32,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.m?js$/,
+                test: /\.?js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -43,20 +46,31 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: path.join(__dirname, "public", "app.html"),
+          template: path.join(__dirname, "public", "index.html"),
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
         new ModuleFederationPlugin({
-            name:"App",
-            filename: 'remoteEntry.js',
-            remotes:{
-                App1:`App1@${domain}/app1/latest/remoteEntry.js`,
-                App2:`App2@${domain}/app2/latest/remoteEntry.js`,
-                Auth:`Auth@${domain}/auth/latest/remoteEntry.js`,
+            name:"Auth",
+            filename:"remoteEntry.js",
+            exposes:{
+                './Auth': './src/App.js'
+
             },
-            shared: deps
+            shared: {
+                ...deps,
+                react: { 
+                    singleton: true, 
+                    eager: true, 
+                    requiredVersion: deps["react"] 
+                },
+                'react-dom': {
+                  singleton: true,
+                  eager: true,
+                  requiredVersion: deps['react-dom'],
+                },
+            },
         })
     ],
 }

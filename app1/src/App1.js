@@ -2,10 +2,10 @@ import React from "react";
 import Documents from "./Documents/Documents";
 import Folders from "./Folders/Folders";
 import { Switch , Route, BrowserRouter, Link, Router } from "react-router-dom";
-import {createMemoryHistory} from 'history'
 import PokemonList from "./Pokemon/PokemonList";
 import PokemonDetail from "./PokemonDetail/PokemonDetail";
 import Header from "./Header/Header";
+import {createMemoryHistory} from 'history'
 const history = createMemoryHistory();
 
 const anotherFunction = (props) => {

@@ -1,34 +1,36 @@
-import React, { lazy, useState } from "react";
-import App1 from "./components/App1";
-import App2 from "./components/App2";
-import HeaderMain from "./components/HeaderMain";
-import { BrowserRouter, Route, Switch, Link, Router } from "react-router-dom";
+import React, { lazy, Suspense,useState } from "react";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
+import { BrowserRouter, Route, Switch, Link, Router } from "react-router-dom";
+import HeaderMain from "./components/HeaderMain";
 import Landing from "./components/Landing";
+import Progress from "./components/Progress";
+const App1Lazy = lazy(()=>import('./components/App1'))
+const App2Lazy = lazy(()=>import('./components/App2'))
+const AuthLazy = lazy(()=>import('./components/Auth'))
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'cont'
 })
 
 export default () => {
-    const [showTitle, setShowTitle] = useState(false)
-    const handleChange = () => {
-        setShowTitle(!showTitle);
-    }
+    const [isSignedIn, setIsSignedIn] = useState(false)
+
     return(
         <BrowserRouter>
-            <React.Suspense fallback="Loading header...">  
                 <StylesProvider generateClassName={generateClassName}>
-                    <HeaderMain/>   
-                    {/* {!showTitle && <App1/>} */}
-                    {/* <Switch> */}
-                        <Route exact path="/"               component={Landing}/>
-                        <Route exact path="/pokemon"        component={App1}/>
-                        <Route exact path="/pokemon/:id"    component={App1}/>
-                        <Route exact path="/app2"           component={App2}/>
-                    {/* </Switch> */}
+                    <HeaderMain signedIn={isSignedIn} onSignOut={()=>setIsSignedIn(false)}/>   
+                    <Suspense fallback={<Progress/>}>
+                        <Switch>
+                            <Route exact path="/"               component={Landing}/>
+                            <Route exact path="/pokemon"        component={App1Lazy}/>
+                            <Route exact path="/pokemon/:id"    component={App1Lazy}/>
+                            <Route exact path="/app2"           component={App2Lazy}/>
+                            <Route path="/auth/">
+                                <AuthLazy handleSignIn={()=>setIsSignedIn(true)}/>
+                            </Route>
+                        </Switch>
+                    </Suspense>
                 </StylesProvider>       
-            </React.Suspense>
         </BrowserRouter>   
     )
 }
