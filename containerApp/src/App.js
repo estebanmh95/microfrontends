@@ -25,7 +25,7 @@ export default () => {
                             <Route exact path="/pokemon"        component={App1Lazy}/>
                             <Route exact path="/pokemon/:id"    component={App1Lazy}/>
                             <Route exact path="/app2"           component={App2Lazy}/>
-                            <Route path="/auth/">
+                            <Route path="/auth">
                                 <AuthLazy handleSignIn={()=>setIsSignedIn(true)}/>
                             </Route>
                         </Switch>
