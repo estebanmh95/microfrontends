@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { pokemonSpeficic } from "../api/pokemonApi";
+// import { pokemonSpeficic } from "../api/pokemonApi";
 
 export default (props) => {
 
     // console.log(pokemonSpeficic(props.match.params.id))
 
-    const [pokemon, setPokemon] = useState({})
+    const [pokemon, setPokemon] = useState({"name":"Pineco", "sprites":{"front_shiny":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/201.png"}})
     useEffect(()=>{
-        pokemonSpeficic(props.match.params.id).then(resp =>{
-            // console.log(resp)
-            setPokemon(resp)
-        })
+        // pokemonSpeficic(props.match.params.id).then(resp =>{
+        //     // console.log(resp)
+        //     setPokemon(resp)
+        // })
     },[])
 
     return(
