@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch , Route, BrowserRouter, Link, Router } from "react-router-dom";
 import PokemonList from "./Pokemon/PokemonList";
-// import PokemonDetail from "./PokemonDetail/PokemonDetail";
+import PokemonDetail from "./PokemonDetail/PokemonDetail";
 // import Header from "./Header/Header";
 import {createMemoryHistory} from 'history'
 const history = createMemoryHistory();
@@ -24,7 +24,7 @@ const App1 = ({onNavigate, initialPath}) => {
         <Router history={history}>
             <React.Fragment>
                 <Switch>
-                    {/* <Route path="/pokemon/:id"          component={PokemonDetail}/> */}
+                    <Route path="/pokemon/:id"          component={PokemonDetail}/>
                     <Route path="/pokemon"        component={PokemonList}/>
                 </Switch>
             </React.Fragment>
