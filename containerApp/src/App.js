@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Link, Router } from "react-router-dom";
 import HeaderMain from "./components/HeaderMain";
 import Landing from "./components/Landing";
 import Progress from "./components/Progress";
-// const App1Lazy = lazy(()=>import('./components/App1'))
+const App1Lazy = lazy(()=>import('./components/App1'))
 const App2Lazy = lazy(()=>import('./components/App2'))
 const AuthLazy = lazy(()=>import('./components/Auth'))
 
@@ -21,7 +21,7 @@ export default () => {
                     <HeaderMain signedIn={isSignedIn} onSignOut={()=>setIsSignedIn(false)}/>   
                     <Suspense fallback={<Progress/>}>
                         <Switch>
-                            {/* <Route path="/pokemon"        component={App1Lazy}/> */}
+                            <Route path="/pokemon"        component={App1Lazy}/>
                             {/* <Route exact path="/pokemon/:id"    component={App1Lazy}/> */}
                             <Route exact path="/app2"           component={App2Lazy}/>
                             <Route path="/signin">

@@ -1,10 +1,8 @@
 import React from "react";
-import Documents from "./Documents/Documents";
-import Folders from "./Folders/Folders";
 import { Switch , Route, BrowserRouter, Link, Router } from "react-router-dom";
 import PokemonList from "./Pokemon/PokemonList";
-import PokemonDetail from "./PokemonDetail/PokemonDetail";
-import Header from "./Header/Header";
+// import PokemonDetail from "./PokemonDetail/PokemonDetail";
+// import Header from "./Header/Header";
 import {createMemoryHistory} from 'history'
 const history = createMemoryHistory();
 
@@ -21,26 +19,13 @@ const App1 = ({onNavigate, initialPath}) => {
 
     history.listen(onNavigate);
 
-    const todos = [
-        "Run",
-        "Eat",
-        "Have Dinner",
-        "Stay warm"
-    ]
-
     return(
-                // <Header/>
+        // <Header/>
         <Router history={history}>
             <React.Fragment>
-                    {/* <Link to="app1/documents">Documents</Link> 
-                    <Link to="/folders">Folders</Link> */}
                 <Switch>
-                    {/* <Route exact path="/" render={()=>(<Todo todos={todos}/>)}/> */}
-                    {/* <Route exact path="/"               component={PokemonList}/> */}
-                    <Route exact path="/pokemon"        component={PokemonList}/>
-                    <Route path="/pokemon/:id"    component={PokemonDetail}/>
-                    <Route exact path="/documents"      component={Documents}/>
-                    <Route exact path="/folders"        component={Folders}/>
+                    {/* <Route path="/pokemon/:id"          component={PokemonDetail}/> */}
+                    <Route path="/pokemon"        component={PokemonList}/>
                 </Switch>
             </React.Fragment>
         </Router>

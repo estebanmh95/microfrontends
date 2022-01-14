@@ -10,15 +10,15 @@ export default ( ) => {
 
     useEffect(()=>{
         pokemonList.then(pokemons => {
-            setPokemons(pokemons.pokemons.results)
-            // console.log(pokemons)
+            // setPokemons(pokemons.pokemons.results)
+            console.log(pokemons)
         })
     },[])
 
     return(
         <div className="character-list--container">
             <h1>List of best Pokemons</h1>
-            <div className="character-list--card-container">
+            {/* <div className="character-list--card-container">
                 { pokemons.map((character, idx)=>{
                     return(
                         <div key={idx} className="character-list--card">
@@ -28,8 +28,9 @@ export default ( ) => {
                             <h4>{character.name}</h4>
                         </div>
                     )
-                    })}
-            </div>
+                    })
+                }
+            </div> */}
         </div>
     )
 }
